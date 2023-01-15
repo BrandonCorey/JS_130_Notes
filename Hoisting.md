@@ -41,3 +41,31 @@ function hello() {
 
 hello();
 ```
+
+### Temproaral Deadzone ###
+As mentioned before, delcaratinos made with `let`, `const` and `class` are also hoisted, but they are not implicitly initalized to `undefined`
+- Instead, these declarations have **NO** value, and are conisdered to be within the *temporal deadzone(
+  - They remain here until the code that initalizes them is executed
+  - As a result, trying to access these variables will throw a reference error
+
+```javascript
+// Before
+console.log(x);
+var x = 'hello';
+
+console.log(y);
+let y = 'world';
+
+console.log(z);
+```
+```javascript
+// After
+var x;
+let y; (temproal deadzone, no value)
+
+console.log(x); // 'undefined'
+x = 'hello';
+
+console.log(y) // ReferenceError: Cannot 'access' 'y' before initialization (Look at the wording of this error)
+console.log(z) // ReferenceEffor: z is not defined (notice how this is different. JS knows where a declaration is in the TDZ vs not defined)
+```
