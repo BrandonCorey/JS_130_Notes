@@ -16,7 +16,7 @@ Both of these variable types have their declarations hoisted to the top of a fun
 let x = 5; // block scope
 
 if (true) {
-  var q = 3; // functin scope
+  var q = 3; // function scope
 }
 
 function test() {
@@ -71,7 +71,7 @@ Refers scope refers to how the structure of your code determines what variables 
 These terms are relative depending on the surrounding structure of the code. Something can be outer scope to one statement while being inner scope to another.
 
 ```javascript
-let x = 5; // outer scope of test
+let x = 5; // outer scope of test, outer scope of if statement
 
 if (true) {
   var q = 3; // outer scope of test, outer scope of if statement
