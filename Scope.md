@@ -47,7 +47,7 @@ if (true) {
   var q = 3; // global scope
 }
 
-function test() { global scope
+function test() { // global scope
   if (x === 5) {
     let y = 2; // local scope (block)
     var z = 4; // local scope (function)
