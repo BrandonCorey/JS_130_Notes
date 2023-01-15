@@ -88,3 +88,8 @@ function test() {
 
 test();
 ```
+
+### When to use ###
+- Use declared scope when you're talking about how an identifier is declared.
+- Use visibility scope when you're talking about the visibility of a specific identifier.
+- Use lexical scope when you want to talk about whether something is "in scope" -- that is, whether it is available for use.
