@@ -7,6 +7,7 @@ Based on the syntax used to declare a variable
 - `const`
 
 **Function Scope**
+
 Both of these variable types have their declarations hoisted to the top of a function (or program if in global scope)
 - `function`
 - `var`
