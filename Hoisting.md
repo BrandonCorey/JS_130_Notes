@@ -17,7 +17,7 @@ Hosting is when the JS engine brings all declarations to top of their respective
   - `var` declarations are hoisted and then initalized to a value of `undefined` (implicitly) during the execution phases until a the code is reached that assigns a value
 
 ```javascript
-// Before
+// Before hoisting
 hello()
 
 function hello() {
@@ -29,7 +29,7 @@ function hello() {
 }
 ```
 ```javascript
-// After
+// After hoisting
 function hello() {
   var x;
   if (true) {
@@ -49,7 +49,7 @@ As mentioned before, delcaratinos made with `let`, `const` and `class` are also 
   - As a result, trying to access these variables will throw a reference error
 
 ```javascript
-// Before
+// Before hoisting
 console.log(x);
 var x = 'hello';
 
@@ -59,7 +59,7 @@ let y = 'world';
 console.log(z);
 ```
 ```javascript
-// After
+// After hoisting
 var x;
 let y; (temproal deadzone, no value)
 
@@ -68,4 +68,38 @@ x = 'hello';
 
 console.log(y) // ReferenceError: Cannot 'access' 'y' before initialization (Look at the wording of this error)
 console.log(z) // ReferenceEffor: z is not defined (notice how this is different. JS knows where a declaration is in the TDZ vs not defined)
+```
+### A note on function declarations ###
+- Rememebr that function declarations have function scope
+- These means something like the code below works
+
+```javascript
+// Before hoisting
+function printHelloWorld() {
+  return `${hello()} ${world()}`;
+  
+  function hello() {
+    return 'hello';
+  }
+  
+  function world() {
+    return 'world';
+  }
+}
+
+printHelloWorld(); // 'hello world'
+```
+```javascript
+// After hoisting
+function printHelloWorld() {
+  function hello() {
+    return 'hello';
+  }
+
+  function world() {
+    return 'world';
+  }
+  
+  return `${hello()} ${world()}`;
+}
 ```
