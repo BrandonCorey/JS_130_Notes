@@ -29,6 +29,7 @@ function hello() {
 }
 ```
 ```javascript
+// After
 function hello() {
   var x;
   if (true) {
