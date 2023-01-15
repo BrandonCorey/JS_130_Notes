@@ -19,7 +19,7 @@ if (true) {
   var q = 3; // function scope
 }
 
-function test() {
+function test() { // function scope
   if (x === 5) {
     let y = 2; // block scope
     var z = 4; // function scope
@@ -49,7 +49,7 @@ if (true) {
   var q = 3; // global scope
 }
 
-function test() {
+function test() { global scope
   if (x === 5) {
     let y = 2; // local scope (block)
     var z = 4; // local scope (function)
