@@ -143,3 +143,31 @@ Person = class {
 - During execution phase, it executes from the top down as well, but is aware of all declarations and executes them based on specific rules the engine has
   - Some of these rules function declarations allowed to be called before they are executed
   - Another rule is var being initalized to undefined by default
+
+### If a function declaratin and var declaration share same name ###
+- If they share the same name, the `var` declaration is discarded, but its initalized value still remains
+
+```javascript
+// Before hoisting
+var foo = function() {
+  console.log('bye');
+}
+
+function foo() {
+  console.log('hello')
+}
+
+foo();
+```
+```javascript
+// After hoisting
+function foo() {
+  console.log('hello')
+}
+
+foo = function() {
+  console.log('bye');
+}
+```
+foo()
+```
