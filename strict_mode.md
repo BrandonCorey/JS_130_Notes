@@ -17,6 +17,11 @@ To enable, add this text to beginning of program file or function definition
 - To help code run faster
 - To help avoid conflicts with future changes to the language
 
+### When to use it? ###
+Use it in any new code you write
+- If using on old code, its safe it use it at the function level
+- Don't use it at the global level for old code that it may break
+
 ### Notes about strict mode ###
 - Strict mode is lexically scoped
 - Enabling strict mode for a function does so for the entire definition, including nested functions
