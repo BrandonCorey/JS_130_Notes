@@ -24,6 +24,9 @@ To enable, add this text to beginning of program file or function definition
 - Strict mode cannot be disabled within its scope after it has been enabled
 - **ES6 classes** automatically enable strict mode
 - Implicitly scoped global variables are not allowed (must use `let`, `const`, or `var`, not declaring a variable will throw a reference error)
+  - Helps stop the creation of unwanted global variables
+- Implcit execution context is set to the `undefined`, not the `global` object
+  - Helps spot context loss sooner
 
 ```javascript
 // Example of function scoped strict mode
@@ -52,4 +55,17 @@ function newTest() {
 }
 
 newTest();
+```
+```javascript
+// Example of implicit context of the program using strict mode
+"use strict"
+const obj = {
+  name: 'Brandon';
+  changeName(name) {
+    this.name = name;
+  }
+}
+
+const changeName = obj.changeName;
+changeName('Nug'); // TypeError: Cannot set property 'name' of undefined (implicit context of program is undefined, not global object)
 ```
