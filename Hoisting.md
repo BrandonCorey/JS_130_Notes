@@ -70,8 +70,10 @@ console.log(y) // ReferenceError: Cannot 'access' 'y' before initialization (Loo
 console.log(z) // ReferenceEffor: z is not defined (notice how this is different. JS knows where a declaration is in the TDZ vs not defined)
 ```
 ### A note on function declarations ###
-- Rememebr that function declarations have function scope
+- Rememeber that function declarations have function scope
+- Also remember that the *entire* function definition is hoisted
 - These means something like the code below works
+- With function expressions, they are not hoisted, and they throw a 'not defined' error instead of an initalization error
 
 ```javascript
 // Before hoisting
@@ -101,5 +103,34 @@ function printHelloWorld() {
   }
   
   return `${hello()} ${world()}`;
+}
+```
+A note about class declaratins
+- They are similar to variables declared with `let` and `const`
+- They are hoisted, **but** their definitions are **not**
+
+```javascript
+// Before hoisting
+
+let person = new Person('Brandon', 24); // ReferenceError: Person is not defined
+
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+}
+```
+```javascript
+// After hoisting
+class Person; (Living in TDZ)
+
+let person = new Person('Brandon', 24); // ReferenceError: Person is not defined (similar to how function expression swork)
+
+Person = class {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
 }
 ```
