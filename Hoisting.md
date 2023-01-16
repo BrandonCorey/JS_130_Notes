@@ -3,10 +3,13 @@
 ### Creation ###
 - Takes note of all declarations in program
   - Also takes not of their scope
+- Runs through program line by line, top down
+- Note: This where syntax errors take place
 
 ### Execution ###
 - Runs programs line by line
-- Does hoisting for all declarations (moves them to top of scope)
+- Doesn't care about declarations, does care about initalizations and definitions
+- Does *hoisting* for all declarations (moves them to top of scope)
   - variables declared with `let`, `const` and `class` are not accessible before initalization, but they are still hoisted
 
 ### What is hoisting? ###
