@@ -137,3 +137,9 @@ Person = class {
   }
 }
 ```
+### Reminder tha hoisting is not actually real ###
+- In reality, JS goes through creation phase from the top down
+- It takes note of all declarations and their scope
+- During execution phase, it executes from the top down as well, but is aware of all declarations and executes them based on specific rules the engine has
+  - Some of these rules function declarations allowed to be called before they are executed
+  - Another rule is var being initalized to undefined by default
