@@ -27,6 +27,14 @@ To enable, add this text to beginning of program file or function definition
   - Helps stop the creation of unwanted global variables
 - Implcit execution context is set to the `undefined`, not the `global` object
   - Helps spot context loss sooner
+- Cannot use numbers with leading 0's (JS uses an octal base for the number when this is done)
+
+**Other notes**
+- Cannot use two parameters with same name
+- Can't use certain keywords as variable names
+- Cannot use delete operator on a variable name
+- disables `with` statement`
+- Limits `argument` object accessibility
 
 ```javascript
 // Example of function scoped strict mode
