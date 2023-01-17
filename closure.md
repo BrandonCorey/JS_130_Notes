@@ -10,3 +10,61 @@ The lesson: **where you invoke the function doesn't dictate what it has access t
 
 Note: A "closure" will store references to all variables referred to within its function definiton
 - Launch school tells us to think about this as an envelope object that is attached to the function that stores the references
+
+### Example 1 ###
+```javascript
+function makeCounter() {
+  let counter = 0;
+
+  return function() {
+    counter += 1;
+    return counter;
+  }
+}
+
+let incrementCounter = makeCounter();
+console.log(incrementCounter()); // 1
+console.log(incrementCounter()); // 2
+```
+
+### Explanation ###
+The closure is the anonymous function that is returned by the makeCounter function.
+
+The makeCounter function defines a variable counter with an initial value of 0, and then it returns a function that can access and update this variable. When this returned function is called, it increments the value of counter by 1 and returns the updated value.
+
+The returned function closes over the variable counter and create a snapshot of it, so even after the makeCounter function has finished executing and its local scope is no longer available, the returned function still has access to the counter variable and can update its value.
+
+When incrementCounter is assigned the returned function, it creates a closure that has access to the counter variable and can increment its value every time it is called.
+
+When incrementCounter is called the first time, it increments the value of counter to 1 and returns it, the second time it increments it to 2 and returns it and so on.
+
+### Example 2 ###
+```javascript
+function add(first, second) {
+  return first + second;
+}
+
+function makeAdder(firstNumber) {
+  return function(secondNumber) {
+    return add(firstNumber, secondNumber);
+  };
+}
+
+let addFive = makeAdder(5);
+let addTen = makeAdder(10);
+
+console.log(addFive(3));  // 8
+console.log(addFive(55)); // 60
+console.log(addTen(3));   // 13
+console.log(addTen(55));  // 65
+```
+### Explanation ###
+The closures are the anonymous functions returned by the makeAdder function.
+
+makeAdder takes a single argument firstNumber and returns a new function that takes a single argument secondNumber and returns the result of calling add(firstNumber, secondNumber). The returned function closes over the firstNumber variable and add function, so it has access to these values and can use them to compute the result.
+
+When addFive is assigned the returned function with the closed-over value 5, and addTen is assigned the returned function with the closed-over value 10, they both create their own closures with the closed-over values and the add function.
+
+When addFive is called with the argument 3, it uses the closed-over value 5 as the first argument and 3 as the second argument to call the add function which returns the sum 8. Similarly, when addTen is called with the argument 3, it uses the closed-over value 10 as the first argument and 3 as the second argument to call the add function which returns the sum 13.
+
+The closures created by addFive and addTen are independent of each other, each has its own closed-over value and their own instance of the add function.
