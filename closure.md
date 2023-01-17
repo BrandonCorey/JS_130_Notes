@@ -32,7 +32,7 @@ The closure is the anonymous function that is returned by the makeCounter functi
 
 The makeCounter function defines a variable counter with an initial value of 0, and then it returns a function that can access and update this variable. When this returned function is called, it increments the value of counter by 1 and returns the updated value.
 
-The returned function closes over the variable counter and create a snapshot of it, so even after the makeCounter function has finished executing and its local scope is no longer available, the returned function still has access to the counter variable and can update its value.
+The returned function closes over the variable counter and stores its reference, so even after the makeCounter function has finished executing and its local scope is no longer available, the returned function still has access to the counter variable and can update its value.
 
 When incrementCounter is assigned the returned function, it creates a closure that has access to the counter variable and can increment its value every time it is called.
 
