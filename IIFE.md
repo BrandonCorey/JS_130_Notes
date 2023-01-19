@@ -1,4 +1,4 @@
-### Immediately Invoked Function Expressions ###
+## Immediately Invoked Function Expressions ##
 These are functions expressions that are defined, evaluated, and invoked all at once
 - This can be done by surrounding the expression in parenthesis, then calling it (using another set of parenthesis, like a normal function call);
   - Can use this for any type of function syntax (including arrow)
@@ -16,8 +16,8 @@ These are functions expressions that are defined, evaluated, and invoked all at 
 ((first, second) => first + second)(5, 3); // 8
 ```
 
-### Benefits ###
-**Allows you to create private scope amidst a larger program**
+## Benefits ##
+## Allows you to create private scope amidst a larger program ##
 - This means you do not have to worry about clashing variable names, including function name
 - The example below shows how nothing leaks outside of the private scope of the IIFE
 ```javascript
@@ -48,4 +48,22 @@ console.log((function(array) {
 
   console.log(deDuped);
 }
+```
+## Can be used with closure to create Private Data ##
+- We can use this pattern to eliminate the need to define a function that creates our return function
+  - This creates one less uneeded function name, and one less function invocation.
+- Notice below how we don't need a factory function to create a counter
+  - We can use the IIFE as the factory, then invoke it immediately to return the useful function
+```javascript
+const counter = (function() {
+  let counter = 0;
+  return function() {
+    counter += 1;
+    return counter;
+  };
+})();
+
+counter();
+counter();
+counter();
 ```
