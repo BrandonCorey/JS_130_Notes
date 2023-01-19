@@ -33,3 +33,19 @@ console.log((function(array) {
 
 // 1000 lines of JS below
 ```
+**Note: In ES6 and later, you can accomplist the same using blocks**
+
+```javascript
+// Example of using blocks for private scope
+{
+  let array = [1, 1, 5, 5, 3, 4, 4, 5];
+  let deDuped;
+
+  deDuped = array.reduce((arr, value) => {
+    if (!arr.includes(value)) arr.push(value);
+    return arr;
+  });
+
+  console.log(deDuped);
+}
+```
