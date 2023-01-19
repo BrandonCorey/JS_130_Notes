@@ -19,8 +19,8 @@ These are functions expressions that are defined, evaluated, and invoked all at 
 ### Benefits ###
 **Allows you to create private scope amidst a larger program**
 - This means you do not have to worry about clashing variable names, including function name
-- The example below shows how nothing leaks outside of the private scope of the IIEF
-```javasscript
+- The example below shows how nothing leaks outside of the private scope of the IIFE
+```javascript
 // 1000 lines of JS above
 
 // Remove duplicates in an array
