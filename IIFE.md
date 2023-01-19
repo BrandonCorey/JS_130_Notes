@@ -44,7 +44,7 @@ console.log((function(array) {
   deDuped = array.reduce((arr, value) => {
     if (!arr.includes(value)) arr.push(value);
     return arr;
-  });
+  }, []);
 
   console.log(deDuped);
 }
