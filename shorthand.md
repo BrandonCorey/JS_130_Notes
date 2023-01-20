@@ -58,6 +58,7 @@ console.log(first, second, fifth);
 - Used to spread elements of an array or object into serperate itmes
 - Will turn something like `[1, 2, 3]` into `1, 2, 3`
 - Can **also** spread objects, but must put back into an object (unlike an array)
+  - NOTE: Does not copy the object's prototype, only copies enumerable properties
 ```javascript
 let arr = [1, 2, 3];
 let bar = { a: 4, b: 5 }
@@ -68,3 +69,24 @@ let arrCopy = [...arr, {...bar}];
 console.log(arrCopy); // [ 1, 2, 3, { a: 5, b: 5 } ]
 ```
 ### Rest syntax ###
+- Acts as the opposite of spread syntax
+- Takes seperate items and compacts them to a single entitiy
+- Most common use it to take a variable amount of function arguments
+- Can use `rest` as name or any other legal name, but `rest` will ovveride any property names and act as the rest operator, where other names will not
+```javascript
+let arr = [1, 2, 3, 4, 5, 6];
+let foo = { a: 4, b: 5 , c: 6}
+let [ one, ...rest] = arr;
+let {a, ...others} = foo;
+
+console.log(one); // 1
+console.log(rest); // [2, 3, 4, 5, 6]
+console.log(a); // 4
+console.log(others); // { b: 5 , c: 6 }
+
+function test(...args) { // This syntax puts the args into an array
+  return args.reduce((sum, val) => sum + val);
+}
+
+test(1, 2, 3); // 6
+```
