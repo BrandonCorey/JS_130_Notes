@@ -8,3 +8,13 @@ function createObj(prop1, prop2) {
   }
 }
 ```
+
+### Concise Methods ###
+- Allows you to define methods in a more concise way
+```javascript
+let obj = {
+  test() { // instead of test: function() {}
+    console.log('test');
+  }
+}
+```
