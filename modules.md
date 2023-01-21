@@ -12,7 +12,7 @@ Large programs that are a nightmare to traverse and keep track of
 - Its easier to import a module then copy/cut and paste code from another file
 
 ### CommonJS modules ###
-- Native to the language
+Native support for modules offered by **Node**
 - Uses `require` syntax to import a module
   - NPM modules usuall just require the name of the module as the argument
   - User created modules require the filepath (in relation to the current directory)
