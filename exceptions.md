@@ -59,4 +59,5 @@ function divideOneBy(divisor) {
   - Only way to detect this is by trying and seeing if it works
 
 - Only handle exceptions you believe can be recovered from successfully
+  - Only handle if you're confident the handler will not throw another expceiton itself
   - handler should do as little as possible (ignore exception, return error value, log a message, throw another exception)
