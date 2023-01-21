@@ -39,3 +39,26 @@ const sum = require('./sum');
 
 console.log(sum([1, 2, 3, 4, 5])); // 15
 ```
+### JS Modules ###
+
+NOTE: Not expected to know ES Module stuff, but this is for exposure
+
+ES6 introduced modules natively to the language
+- These work natively in the browser, but _Node_ technically does not support them natively
+  - Newer versions of node do support them actually
+
+**Important Variables**
+`export` - Exports variables and stores them within an object
+`import` - Allows you to import variable using object destructing
+ 
+ ```javascript
+ // File sum.js
+ export const sum = array => array.reduce((a, b) => {
+  return a + b;
+});
+
+// New file in same directory
+import { sum } from "./sum"
+
+console.log(sum([1, 2, 3, 4, 5])); // 15
+ ```
