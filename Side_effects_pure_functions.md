@@ -108,13 +108,15 @@ Generally, we should try to avoid mixing side effects and *useful* return values
 ### Pure Functions ###
 These are functions that:
 - Have no side effects
-- Will always return the same vlue if passed the same arguments
+- Will always return the same value if passed the same arguments
   - This is the most important part of pure functions
-  - Means nothing else in the program aside from the arguments being passed in can influence the function during its lifetime
-    - A functions lifetiem can vary:
-    - A declared function will exist until the garbage collector scoops it up
+  - Means nothing else in the program, aside from the arguments being passed in, can influence the function during its lifetime
+    - A functions lifetime can vary:
+    - A globally scoped function will exist until the garbage collector scoops it up
     - A nested function, or anything within the definition that is not part of a closure, is destroyed after a single invocation
-      - On new invocations, as we know these values will be reallocated to a new slot of memory, but the original is destroyed after execution 
+      - On new invocations, these values will be reallocated to a new slot of memory, but the original is destroyed after execution
+  - Also means that pure functions have no effect on any other parts of the program
+  - Similar to side effects, we can refer to either functions themselves or their invcoations as **pure** or **impure**
 
 ```javascript
 const deDupe = array => {
