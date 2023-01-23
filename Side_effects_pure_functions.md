@@ -108,7 +108,7 @@ Generally, we should try to avoid mixing side effects and *useful* return values
 ### Pure Functions ###
 These are functions that:
 - Have no side effects
-- Will always return the same value if passed the same arguments
+- Will always return the same value if passed the same arguments (OR always returns the same valud period, regardless of arguments)
   - This is the most important part of pure functions
   - Means nothing else in the program, aside from the arguments being passed in, can influence the function during its lifetime
     - A functions lifetime can vary:
