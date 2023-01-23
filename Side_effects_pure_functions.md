@@ -45,6 +45,6 @@ console.log(arr); // [3, 2 1]
 NOTE: when a new array tranformed array is returned from a function, this is side effects through reassignemnt NOT mutation
 ```javascript
 const twoTimes = (arr) => arr.map(num => num * 2);
-twoTimes(arr);
-console.log(arr); // [6, 4, 2]
+array = twoTimes(arr);
+console.log(array); // [6, 4, 2]
 ```
