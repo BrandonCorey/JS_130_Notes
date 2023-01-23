@@ -14,7 +14,7 @@ NOTE: Its more accurate to speak about function *calls* having side effects, not
     - Expcted data type is passed
     - Function is called at expected point in the program 
 
-NOTE: Functions producing unexpected side effects are a major source of bugs
+NOTE: If a function has side effects *only* on local variables, it is still considered to NOT have side effects
 
 ```javascript
 [1, 2, 3].map(num => console.log(num)); // invocation of function (map) has side effects
@@ -88,12 +88,19 @@ If a program raises an excpeiton
 function multiply(num1, num2) {
   try {
     if (num1 === undefined || num2 === undefined) {
-      throw new Error('Cannot multiple by undefined'); // side effects if this is executed
-    } catch (error) {
+      throw new Error('Error: Cannot multiple by undefined'); // side effects if this is executed and not caught successfully
+    }
+  } catch (error) {
       console.log(error.message); // side effects if this is executed (because of log)
       return NaN;
-    } 
   }
   return num1 * num2; // No side effects we reach this, just returning a number
 }
 ```
+### Mixing side effects and return values ###
+Generally, we should try to avoid mixing side effects and *useful* return values
+- A useful return value is a value that we intend to do something with, not an arbitrary value or value that is always the same
+- This rule can, and **must** be broken in certain situations. Below are some common examples:
+  - Reading input from the user, then returning the value
+  - Reading input from a database,then returning the value
+  - Logging a value to the console before returning it
