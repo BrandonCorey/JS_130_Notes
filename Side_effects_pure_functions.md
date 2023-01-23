@@ -49,3 +49,51 @@ const twoTimes = (arr) => arr.map(num => num * 2);
 array = twoTimes(arr);
 console.log(array); // [6, 4, 2]
 ```
+
+### Side effects through input output (I/O)
+Common IO side effects can be seen below
+
+- Reading from a file on the system's disk
+- Writing to a file on the system's disk
+- Reading input from the keyboard
+- Writing to the console
+- Accessing a database
+- Updating the display on a web page
+- Reading data from a form on a web page
+- Sending data to a remote web site
+- Receiving data from a remote web site
+- Accessing system hardware such as:
+  - The mouse, trackpad, or other pointing devices
+  - The clock
+  - The random number generator
+  - The audio speakers
+  - The camera
+
+```javascript
+const readline = require('readline-sync');
+let answer = readline.question('How old are you'); // This method "question" produces side effects
+```
+```javascript
+let date = new Date(); // side effects, accesses system clock
+let rand = Math.random(); // side effects, accesses random number generator
+```
+
+### Side effects through exceptions ###
+If a program raises an excpeiton
+- And doesn't handle it, it has side effects
+- If it handles it, and the catch block  has side effects, it has side effects
+- If it handles it, and the catch block does NOT have side effects, it does not have side effects
+
+```javascript
+function multiply(num1, num2) {
+  try {
+    if (num1 === undefined || num2 === undefined) {
+      throw new Error('Cannot multiple by undefined'); // side effects if this is executed
+    } catch (error) {
+      console.log(error.message); // side effects if this is executed (because of log)
+      return NaN;
+    } 
+  }
+  return num1 * num2; // No side effects we reach this, just returning a number
+}
+```
