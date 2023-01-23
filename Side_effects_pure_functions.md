@@ -104,3 +104,25 @@ Generally, we should try to avoid mixing side effects and *useful* return values
   - Reading input from the user, then returning the value
   - Reading input from a database,then returning the value
   - Logging a value to the console before returning it
+
+### Pure Functions ###
+These are functions that:
+- Have no side effects
+- Will always return the same vlue if passed the same arguments
+  - This is the most important part of pure functions
+  - Means nothing else in the program aside from the arguments being passed in can influence the function during its lifetime
+    - A functions lifetiem can vary:
+    - A declared function will exist until the garbage collector scoops it up
+    - A nested function, or anything within the definition that is not part of a closure, is destroyed after a single invocation
+      - On new invocations, as we know these values will be reallocated to a new slot of memory, but the original is destroyed after execution 
+
+```javascript
+const deDupe = array => {
+  return array.filter((el, idx) => {
+    return idx === array.indexOf(el);
+  });
+}
+
+deDupe([1, 1, 2, 2, 3, 3]); // [1, 2, 3];
+// This is pure. It produces no side effects, and will always return [1, 2, 3] when [1, 1, 2, 2, 3, 3] is passed in
+```
