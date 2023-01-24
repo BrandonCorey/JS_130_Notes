@@ -29,6 +29,10 @@ describe("Car class", () => {
   test("Has four wheels", () => {
     let car = new Car();
     expect(car.wheels).toBe(4);
-  })
-})
+  });
+});
 ```
+**Skipping tests**
+
+Any test in a file can be skipped by using either `test.skip` or `xtest` where `test` would normally go
+- This is good if you have a test writtent that you don't want to run yet, or if the test is broken
