@@ -14,6 +14,11 @@ To create a new object (or any other variable) to be tested for each test, we ca
   - Reassigning the same variable is fine, as we know
   - This also lets us keep our variables in a place that is lexically in scope for all of our test cases
 
+**NOTE**
+- There is also an `afterEach` function that can be used for teardown, but we don't need that here
+  - This function will execute the callback passed to it _after_ each test
+- Teardown may include logging things to console, clean up files, disconnect from database etc
+
 ```javascript
 const Car = require('./car');
 
