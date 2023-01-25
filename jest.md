@@ -39,13 +39,13 @@ Any test in a file can be skipped by using either `test.skip` or `xtest` where `
 
 ### Matcher Methods ###
 The most common matcher methods. The total list is much longer
-`toBe` - Fails unless actual value === expected value
-`toEqual` - Same as to be but also tests for object value equality ie. `[1, 2, 3]` is equal to `[1, 2, 3]`
-`toBeUnefined` - Fails unless actual value is `undefined`. Same as `toBe(undefined)`
-`toThrow` - Fails unless expression passed to `expect` raises an exception
-`toBeNull` - Fails unless the actual value is `null`
-`toBeTruthy` - Fails unless the actual value is truthy
-`toContain` - Fails unless the given array contains a certain value. Can also be used on strings to check for contained substrings
+- `toBe` - Fails unless actual value === expected value
+- `toEqual` - Same as to be but also tests for object value equality ie. `[1, 2, 3]` is equal to `[1, 2, 3]`
+- `toBeUnefined` - Fails unless actual value is `undefined`. Same as `toBe(undefined)`
+- `toThrow` - Fails unless expression passed to `expect` raises an exception
+- `toBeNull` - Fails unless the actual value is `null`
+- `toBeTruthy` - Fails unless the actual value is truthy
+- `toContain` - Fails unless the given array contains a certain value. Can also be used on strings to check for contained substrings
 
 ```javascript
 const Car = require('./car');
