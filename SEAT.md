@@ -1,10 +1,11 @@
 ## SEAT Approach ##
 **1. Set up the necessary objects.**
+
 2. Execute the code against the object we're testing.
 3. Assert the results of execution.
 4. Tear down and clean up any lingering artifacts.
 
-Previously, we did step two and three, lets tackle step one
+### Previously, we did step two and three, lets tackle step one ###
 
 To create a new object (or any other variable) to be tested for each test, we can use the `beforeEach` function
 - This function takes a callback as an argument to execute before each test runs
