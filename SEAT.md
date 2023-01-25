@@ -5,7 +5,7 @@
 3. Assert the results of execution.
 4. Tear down and clean up any lingering artifacts.
 
-### Previously, we did step two and three, lets tackle step one ###
+### Previously, we did step 2 and 3, lets tackle step 1 ###
 
 To create a new object (or any other variable) to be tested for each test, we can use the `beforeEach` function
 - This function takes a callback as an argument to execute before each test runs
