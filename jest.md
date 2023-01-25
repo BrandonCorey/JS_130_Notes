@@ -50,19 +50,31 @@ The most common matcher methods. The total list is much longer
 ```javascript
 const Car = require('./car');
 
-describe("Car class", () => {
-  let car = new Car();
+describe("Car Instance Tests", () => {
   test("Has four wheels", () => {
+    let car = new Car();
     expect(car.wheels).toBe(4);
   });
 
   test("Mileage is null", () => {
+    let car = new Car();
     expect(car.mileageInfo).toBeNull();
   });
 
   test("Instances are identical", () => {
+    let car = new Car();
     let newCar = new Car();
     expect(newCar).toEqual(car);
   })
-});
+
+  test("Car cannot be driven", () => {
+    let car = new Car();
+    expect(car.drive).toThrow();
+  })
+
+  test("Car has wheels", () => {
+    let car = new Car();
+    expect(car.wheels).toBeTruthy();
+  })
+}); 
 ```
