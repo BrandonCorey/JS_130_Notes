@@ -1,6 +1,6 @@
 ## Testing SEAT Approach ##
 1. Set up the necessary objects.
-  1a. Use `beforeEach`
+  - Use `beforeEach`
 2. Execute the code against the object we're testing.
   - Run the code snipped that we are going to test
 3. Assert the results of execution.
