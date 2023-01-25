@@ -1,7 +1,9 @@
-## Unit Testing ##
+## Unit Testing with jest ##
 This is the type of testing we are using jest for in LS so far
 
-Install jest with `sudo npm install jest -g`
+1. Install jest with `sudo npm install jest -g`
+2. To run tests, `jest <test_file_name>`
+3. To see test coverage, `jest --coverage <test_file_name>`
 
 ### Vocab ###
 - Test Suite - A set of tests that accompanies a program or applicaiton
