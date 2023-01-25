@@ -1,5 +1,7 @@
 ## Unit Testing ##
-This is what we are using jest for currently
+This is the type of testing we are using jest for in LS so far
+
+Install jest with `sudo npm install jest -g`
 
 ### Vocab ###
 - Test Suite - A set of tests that accompanies a program or applicaiton
