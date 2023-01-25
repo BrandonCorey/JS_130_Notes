@@ -1,4 +1,4 @@
-## SEAT Approach ##
+## Testing SEAT Approach ##
 **1. Set up the necessary objects.**
 
 2. Execute the code against the object we're testing.
