@@ -18,9 +18,9 @@ To create a new object (or any other variable) to be tested for each test, we ca
 const Car = require('./car');
 
 describe("car Instance Tests", () => {
-  let car;
+  let car; // in scope for all subsequent tests
   beforeEach(() => {
-    car = new Car();
+    car = new Car(); // Before each test is ran, a brand new car is created and reassigned back to our car variable
   });
 
   test("has four wheels", () => {
