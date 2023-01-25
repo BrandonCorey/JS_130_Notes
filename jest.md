@@ -2,9 +2,9 @@
 This is what we are using jest for currently
 
 ### Vocab ###
-Test Suite - A set of tests that accompanies a program or applicaiton
-Test - A specific situation or context being tested. May sometimes be referred to as a **spec**
-Assertion - Verification that confirms your program did what it was supposed to. Ex) Did a function return the correct value (Also called **expectation**)
+- Test Suite - A set of tests that accompanies a program or applicaiton
+- Test - A specific situation or context being tested. May sometimes be referred to as a **spec**
+- Assertion - Verification that confirms your program did what it was supposed to. Ex) Did a function return the correct value (Also called **expectation**)
 
 ### Jest Specifics ###
 `describe` 
@@ -46,3 +46,23 @@ The most common matcher methods. The total list is much longer
 `toBeNull` - Fails unless the actual value is `null`
 `toBeTruthy` - Fails unless the actual value is truthy
 `toContain` - Fails unless the given array contains a certain value. Can also be used on strings to check for contained substrings
+
+```javascript
+const Car = require('./car');
+
+describe("Car class", () => {
+  let car = new Car();
+  test("Has four wheels", () => {
+    expect(car.wheels).toBe(4);
+  });
+
+  test("Mileage is null", () => {
+    expect(car.mileageInfo).toBeNull();
+  });
+
+  test("Instances are identical", () => {
+    let newCar = new Car();
+    expect(newCar).toEqual(car);
+  })
+});
+```
