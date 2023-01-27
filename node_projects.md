@@ -21,6 +21,7 @@ todolist_project
 
 ### Node Packages ###
 Packages of code that can be downloaded, installed, and used in your code or system
+- **packages are made up of modules**
 - Some can be imported into programs
 - Some can be used from the command line
 - Some can do both
@@ -60,9 +61,11 @@ The `package.json` file contains important information about your Node project, 
 - A `package.json` can be created using `npm init`
 
 ### `package.json` ###
-While Node will add a `package.json` automatically when you install a package, it is generally better practice to create it yourself
+While Node will add a `package.json` automatically when you install a package, it can also be created manually
 - You can manually add a `dependencies` key with the relevent information of the module you want to install
 - After you add your `dependencies`, you can use `npm install` to find the version you specified and install it into `node_modules`
+- Can also do it automatically using `npm install <packagename> --save`
+  - `--save` flag tells npm to save the package to the `dependencies` list in `package.json`. Can also use `-S` flag
 ### `package-lock.json` ###
 Installing modules will create a `package-lock.json`, which will contain specific info about which minor version and patch of which version your project is using
   - The `package-lock.json` will also show all the dependencies that your dependency has
