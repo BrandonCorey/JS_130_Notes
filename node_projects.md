@@ -5,18 +5,16 @@ Should always created a new local directory, new github repository, and new Git 
 ### Necessary files/directories for now ###
 - `test` directory for storing all of our test files
 - `lib` directory for storing our source code
-- `.gitignore` file containing the text `node_modules`
+- `.gitignore` file containing the text `node_modules` (this file is hidden)
 - `README.md` containg whatever text we want to describe project
 
 Example:
 ```
 todolist_project
+├── README.md
 ├── lib
 │   ├── todo.js
 │   └── todolist.js
-├── test
-|    └── todolist.test.js
-├── README.md
-|
-└── .gitignore
+└── test
+    └── todolist.test.js
 ```
