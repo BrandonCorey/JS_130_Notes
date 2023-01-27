@@ -2,6 +2,8 @@
 We can add scripts to our `package.json` within the "scripts" object
 
 ### Babel script ###
+The syntax to run a script is `npm run <scriptname>`
+
 Lets make using babel easier:
 
 We can add `npx babel lib --out-dir dist --presets=@babel/preset-env` to the script called `babel`
