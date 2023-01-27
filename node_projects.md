@@ -80,13 +80,15 @@ While Node will add a `package.json` automatically when you install a package, i
 Some packages may only be relevant in the context of a development enviroment, and not suitable for production (e.g `eslint`)
 - There is a section within a `package.json` for these dependecies as well called `devDependencies`
 - Can manually add this to a `package.json` or use `npm install <packagename> --save-dev`
+- 
 ### `package-lock.json` ###
 Installing modules will create a `package-lock.json`, which will contain specific info about which minor version and patch of which version your project is using
-  - The `package-lock.json` will also show all the dependencies that your dependency has
-  - NOTE: Verson is considered the major number that we specify in our `package.json`, but Node will determine the minor version and patch for us
-    - Ex) Version 4.17.1 --> Major version: 4, Minor version: 17, Patch version: 1
-  - The `package-lock.json` file is important as the next time `npm install` is ran, it will install the exact depencies needed, down to patch number
-    - This is incredibly helpful if a team of developers are working on something
+- IMPORTANT: If you make ANY changes to `package.json` "dependencies", you MUST update `package-locl.json` using `npm intall`
+- The `package-lock.json` will also show all the dependencies that your dependency has
+- NOTE: Verson is considered the major number that we specify in our `package.json`, but Node will determine the minor version and patch for us
+- Ex) Version 4.17.1 --> Major version: 4, Minor version: 17, Patch version: 1
+- The `package-lock.json` file is important as the next time `npm install` is ran, it will install the exact depencies needed, down to patch number
+- This is incredibly helpful if a team of developers are working on something
 
 ```json
 // package.json example
