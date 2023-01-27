@@ -32,3 +32,9 @@ The `npm` command is used to manage packages
 - `jest` (command line)
 - `readline-sync` (imported into program)
 
+Things like `readline` are programming interfaces, it is a module that we require and allows us to use its methods/functions
+
+Things like `jest` and `eslnt` are command line executables
+
+NOTE: When using `require` for node modules, we do not need to specify the relative path. Node will always look in the directories `node_modules` directory
+
