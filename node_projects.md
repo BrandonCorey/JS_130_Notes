@@ -68,6 +68,7 @@ While Node will add a `package.json` automatically when you install a package, i
     - Ex) Version 4.17.1 --> Major version: 4, Minor version: 17, Patch version: 1
 
 ```json
+// package.json example
 {
   "name": "todolist",
   "version": "1.0.0",
