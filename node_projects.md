@@ -62,12 +62,14 @@ The `package.json` file contains important information about your Node project, 
 ### `package.json` ###
 While Node will add a `package.json` automatically when you install a package, it is generally better practice to create it yourself
 - You can manually add a `dependencies` key with the relevent information of the module you want to install
-- After you add your `dependencies`, you can use `npm install` to find the version you specified and install it into `node_mudles`
+- After you add your `dependencies`, you can use `npm install` to find the version you specified and install it into `node_modules`
 ### `package-lock.json` ###
-The above process will also creates a `package-lock.json`, which will contain specific info about which minor version and patch of which version your project is using
+Installing modules will create a `package-lock.json`, which will contain specific info about which minor version and patch of which version your project is using
   - The `package-lock.json` will also show all the dependencies that your dependency has
   - NOTE: Verson is considered the major number that we specify in our `package.json`, but Node will determine the minor version and patch for us
     - Ex) Version 4.17.1 --> Major version: 4, Minor version: 17, Patch version: 1
+  - The `package-lock.json` file is important as the next time `npm install` is ran, it will install the exact depencies needed, down to patch number
+    - This is incredibly helpful if a team of developers are working on something
 
 ```json
 // package.json example
