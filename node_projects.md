@@ -52,6 +52,7 @@ Some packages don't typically require different versions for different projects 
 - These can be installed using the global flag `npm install heroku -g` or `npm install jest -g`
   - NOTE: You may need root privelages to install a global package i.e (`sudo npm install jest -g`)
 - To uninstall all global packages, use `rm -fr node_mudles package.json package-lock.json`
+  - global packages for Ubuntu are stored in `/usr/local/lib/node_modudles`
 
 ```javascript
 const _ = require('lodash'); // lodash library is an object with methods
