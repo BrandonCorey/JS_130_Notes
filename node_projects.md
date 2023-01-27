@@ -36,5 +36,21 @@ Things like `readline` are programming interfaces, it is a module that we requir
 
 Things like `jest` and `eslnt` are command line executables
 
-NOTE: When using `require` for node modules, we do not need to specify the relative path. Node will always look in the directories `node_modules` directory
+NOTE: When using `require` for node modules, we do not need to specify the relative path. Node will always look through your `node_modules` directory
 
+### Local vs Global Packages ###
+Local packages are installed to your project directory
+- They will be installed in your `node_modules` directory. If you do not have one, one will be created
+  - This is why no parent directories should have a node modules folder, because node will use that instead of creating a new one
+
+```javascript
+const _ = require('lodash'); // lodash library is an object with methods
+const chunk = require('lodash/chunk'); // Can import functions we want directly (faster loading, less memory used)
+
+chunk = require('lodash').chunk; // Note: Not all libraries independently export their functions like lodash. We can use this syntax for those
+                                 // This still imports all the methods, but they get garbage collected quickly
+
+console.log(_.chunk([1, 2, 3, 4, 5, 6, 7, 8], 2));
+// logs [[1, 2], [3, 4], [5, 6], [7, 8]]
+console.log(chunk([1, 2, 3, 4, 5, 6, 7, 8], 2));
+```
