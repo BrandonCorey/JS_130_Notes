@@ -44,6 +44,15 @@ Local packages are installed to your project directory
 - They will be installed in your `node_modules` directory. If you do not have one, one will be created
   - This is why no parent directories should have a node modules folder, because node will use that instead of creating a new one
 
+Packages should almost always be installed locally so you/npm can install the correct version of the package for your project
+- A version installed globally may be compatible with one project, but not another
+
+Some packages don't typically require different versions for different projects and be installed globally
+- Examples of this are `jest` and `heroku`
+- These can be installed using the global flag `npm install heroku -g` or `npm install jest -g`
+  - NOTE: You may need root privelages to install a global package i.e (`sudo npm install jest -g`)
+- To uninstall all global packages, use `rm -fr node_mudles package.json package-lock.json`
+
 ```javascript
 const _ = require('lodash'); // lodash library is an object with methods
 const chunk = require('lodash/chunk'); // Can import functions we want directly (faster loading, less memory used)
@@ -105,3 +114,14 @@ Installing modules will create a `package-lock.json`, which will contain specifi
   }
 }
 ```
+
+### Global vs Local executable packages ###
+- To run an executable globally, call it using its name i.e `eslint <filename.js>`
+- To run an executable locally, call it using npx + its name i.e `npx esilnt <filename.js>`
+  - **Note:** if you don't have a local version of a package installed, npx will check globally, and if not found, downloads a temporary version to use
+
+### Deleting a dependency ###
+- Use `npm uninstall <packagename>` (i.e `npm uninstall lodash`)
+- To uninstall and remove from `package.json` dependencies, use `npm uninstall <packagename> --save`
+- To uninstall from dev dependencies, use `npm uninstall <packagename> --save-dev`
+- Can also use `npm prune` to remove any packages from `node_modules` that are not listed in the `package.json`
