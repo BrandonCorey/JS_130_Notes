@@ -6,6 +6,7 @@ Lets make using babel easier:
 
 We can add `npx babel lib --out-dir dist --presets=@babel/preset-env` to the script called `babel`
 - Note, we can exclude `npx` within scripts, as they will automatically run locally as long as your package is installed locally
+  - We must already have ran both `npm install --save-dev @babel/core @babel/cli` and `npm install --save-dev @babel/preset-env` for this script to work
 
 ```json
 {
