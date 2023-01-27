@@ -17,6 +17,7 @@
 - `npx <packagename>` this will run an executable package
 
 Many packages can be imported to your code instead of executed, like `readline` and `lodash`
+- Don't need to specify path for node packages, node will always look in the closest `node_modules` directory
 - Can access specific methods depending on how a library within a package is organized
 ```javascript
 const _ = require('lodash'); // entire library
