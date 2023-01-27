@@ -18,3 +18,17 @@ todolist_project
 └── test
     └── todolist.test.js
 ```
+
+### Node Packages ###
+Packages of code that can be downloaded, installed, and used in your code or system
+- Some can be imported into programs
+- Some can be used from the command line
+- Some can do both
+
+The `npm` command is used to manage packages
+
+### Examples of packages I've alreasy used ### 
+- `eslint` (command-line)
+- `jest` (command line)
+- `readline-sync` (imported into program)
+
