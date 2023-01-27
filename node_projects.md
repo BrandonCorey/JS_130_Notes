@@ -66,6 +66,10 @@ While Node will add a `package.json` automatically when you install a package, i
 - After you add your `dependencies`, you can use `npm install` to find the version you specified and install it into `node_modules`
 - Can also do it automatically using `npm install <packagename> --save`
   - `--save` flag tells npm to save the package to the `dependencies` list in `package.json`. Can also use `-S` flag
+
+Some packages may only be relevant in the context of a development enviroment, and not suitable for production (e.g `eslint`)
+- There is a section within a `package.json` for these dependecies as well called `devDependencies`
+- Can manually add this to a `package.json` or use `npm install <packagename> --save-dev`
 ### `package-lock.json` ###
 Installing modules will create a `package-lock.json`, which will contain specific info about which minor version and patch of which version your project is using
   - The `package-lock.json` will also show all the dependencies that your dependency has
@@ -88,12 +92,16 @@ Installing modules will create a `package-lock.json`, which will contain specifi
   "dependencies": {
     "express": "4",
     "http-errors": "1",
+    "lodash": "^4.17.15",
     "morgan": "1.9"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.32.0"
+  }
 }
 ```
