@@ -1,5 +1,5 @@
 ## Things to remember ##
-All node projects may have (at this point in curriculum)
+### Node project standards ###
 - a `lib` directory with your source code
 - a `test` directory with your tests
 - a `dist` directory with your transpiled ES5 code
