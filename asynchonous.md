@@ -56,7 +56,7 @@ for (var sec = 1; sec <= 10; sec++) {
 ### Explanation ###
 **In both examples**
 - The for loop finishes exeuction before a single function is executed by `setTimeout`
-- A closure is being formed with `sec` and the callback definition within `setTimeout`
+- A closure is formed with `sec` and the callback definition within `setTimeout`
 
 **Differences**
 - In the first example, we use `let` to declar variables. These are block scoped. As a result, on each itertion, a new `sec` variable is declared
