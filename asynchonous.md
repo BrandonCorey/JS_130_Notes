@@ -38,7 +38,7 @@ console.log('Hello');  // 3
 Lets look at the following two examples
 - The first example logs the correct values after 1 second
 - The second example logs `11` every time
-```
+```javascript
 const delayLog = () => {
   for (let sec = 1; sec <= 10; sec++) {
     setTimeout(() => console.log(sec), sec * 1000);
