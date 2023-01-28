@@ -61,8 +61,8 @@ for (var sec = 1; sec <= 10; sec++) {
 **Differences**
 - In the first example, we use `let` to declare variables. These are block scoped. As a result, on each itertion, a new `sec` variable is declared
   - A new variable means a new `sec` variable is closed over on each iteration by the callback passed to `setTimeout`
-  - Since a new closure is formed (as the enviroment is changed on each iteration), each closure has access to the counter value for each iteration
-  - So, when each callback is executed, the value of their respective clsoure is used, which will reflect the state of the counter when the closure was formed
+  - Since a new closure is formed (as the enviroment is changed on each iteration)
+  - When each callback is executed, the value of counter variable for their respective clsoure is used, which will reflect the state of the counter when the closure   was formed
   - This will log the correct values after the delay
 - In the second example, we use `var` to declare variables. These are function scoped, and only assigned/reassigned in the loop, not declared
   - As a result, only a single closure is formed with the callback function as the environment around it never changes. `sec` is reassigned, but its the same variable
