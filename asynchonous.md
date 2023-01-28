@@ -59,7 +59,7 @@ for (var sec = 1; sec <= 10; sec++) {
 - A closure is formed with `sec` and the callback definition within `setTimeout`
 
 **Differences**
-- In the first example, we use `let` to declar variables. These are block scoped. As a result, on each itertion, a new `sec` variable is declared
+- In the first example, we use `let` to declare variables. These are block scoped. As a result, on each itertion, a new `sec` variable is declared
   - A new variable means a new `sec` variable is closed over on each iteration by the callback passed to `setTimeout`
   - Since a new closure is formed (as the enviroment is changed on each iteration), each closure has access to the counter value for each iteration
   - So, when each callback is executed, the value of their respective clsoure is used, which will reflect the state of the counter when the closure was formed
