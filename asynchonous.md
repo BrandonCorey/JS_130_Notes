@@ -59,7 +59,7 @@ for (var sec = 1; sec <= 10; sec++) {
 - A closure is formed with `sec` and the callback definition within `setTimeout`
 
 **Differences**
-- In the first example, we use `let` to declare variables. These are block scoped. As a result, on each itertion, a new `sec` variable is declared
+- In the first example, we use `let` to declare variables. These are block scoped. With closure, JS *treats* this as if, on each itertion, a new `sec` variable is declared
   - A new variable means a new `sec` variable is closed over on each iteration by the callback passed to `setTimeout`
   - This means a new closure is formed (as the enviroment is changed on each iteration)
   - When each callback is executed, the value of counter variable for their respective closure is used, which will reflect the state of the counter when the closure   was formed
@@ -74,6 +74,16 @@ The following code produces the same effect as using `var` to declare `sec
 const delayLog = () => {
   let sec;
   for (sec = 1; sec <= 10; sec++) {
+    setTimeout(() => console.log(sec), sec * 1000);
+  }
+}
+```
+
+This is more similar to what JS does behind the scenes what when using closure with a for loop using let
+```javascript
+const delayLog = () => {
+for (var _sec = 1; _sec <= 10; _sec++) {
+    let sec = _sec;
     setTimeout(() => console.log(sec), sec * 1000);
   }
 }
