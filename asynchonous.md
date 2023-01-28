@@ -34,7 +34,7 @@ setTimeout(function() { // 2
 console.log('Hello');  // 3
 ```
 
-### More ntoes ###
+### More Notes ###
 Lets look at the following two examples
 - The first example logs the correct values after 1 second
 - The second example logs `11` every time
