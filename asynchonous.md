@@ -71,8 +71,8 @@ for (var sec = 1; sec <= 10; sec++) {
 
 The following code produces the same effect as using `var` to declare `sec
 ```javascript
-let sec;
 const delayLog = () => {
+  let sec;
   for (sec = 1; sec <= 10; sec++) {
     setTimeout(() => console.log(sec), sec * 1000);
   }
