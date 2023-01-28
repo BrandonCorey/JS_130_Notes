@@ -59,6 +59,7 @@ for (var sec = 1; sec <= 10; sec++) {
 - A closure is formed with `sec` and the callback definition within `setTimeout`
 
 **Differences**
+NOTE: (JS handles counters with closure in a special way, but treats them similar to newly scoped variables on each iteration)
 - In the first example, we use `let` to declare variables. These are block scoped. With closure, JS *treats* this as if, on each itertion, a new `sec` variable is declared
   - A new variable means a new `sec` variable is closed over on each iteration by the callback passed to `setTimeout`
   - This means a new closure is formed (as the enviroment is changed on each iteration)
@@ -69,6 +70,7 @@ for (var sec = 1; sec <= 10; sec++) {
   - Because of this, after the loop finishes executing, the closure for the callback has a reference to the fully incremented `sec` variable
   - Because of this, the calback logs `11` each time, which is the final value of the counter after the for loop (since it stops incrementing when its greater than 10)
 
+### More notes on the above ###
 The following code produces the same effect as using `var` to declare `sec
 ```javascript
 const delayLog = () => {
@@ -82,9 +84,11 @@ const delayLog = () => {
 This is more similar to what JS does behind the scenes what when using closure with a for loop using let
 ```javascript
 const delayLog = () => {
-for (var _sec = 1; _sec <= 10; _sec++) {
-    let sec = _sec;
-    setTimeout(() => console.log(sec), sec * 1000);
+  let sec;
+for (sec = 1; sec <= 10; sec++) {
+    ((delay) => (setTimeout(() => console.log(delay), delay * 1000)))(sec);
   }
 }
 ```
+- Here, instead of the `setTimeout` callback closing over `sec`, it closes over `delay` in the definition of the IIFE
+- In reality, a new `sec` is **not** declared on each iteration, as incrementing would be impossible, but JS does magic behind the scenes so that closure treats it like a new counter is created for the purpose of closure having access to these intermediate values
