@@ -49,7 +49,7 @@ function divideOneBy(divisor) {
 }
 ```
 
-### Exceptions should be used for exceptional behavior ###
+## Exceptions should be used for exceptional behavior ##
 - Do not throw exceptions for flow control type issues
   - The divide by 0 is an exmaple of when it might not be needed
   - Any type of input validation that can be controlled probably should not raise an exception
