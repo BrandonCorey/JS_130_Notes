@@ -144,8 +144,10 @@ Person = class {
   - Some of these rules function declarations allowed to be called before they are executed
   - Another rule is var being initalized to undefined by default
 
-### If a function declaratin and var declaration share same name ###
+### If a function declaration and var declaration share same name ###
 - If they share the same name, the `var` declaration is discarded, but its initalized value still remains
+  - This results in a simple reassignment at the point in the code where the variable was initalized
+  - This also happens if two `function` declarations share the same name, OR two `var` declarations
 
 ```javascript
 // Before hoisting
@@ -153,11 +155,13 @@ var foo = function() {
   console.log('bye');
 }
 
+foo(); // logs 'bye'
+
+var foo = 5;
+
 function foo() {
   console.log('hello')
 }
-
-foo();
 ```
 ```javascript
 // After hoisting
@@ -168,6 +172,8 @@ function foo() {
 foo = function() {
   console.log('bye');
 }
-```
-foo()
+
+foo();
+
+foo = 5;
 ```
