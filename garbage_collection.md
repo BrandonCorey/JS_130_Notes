@@ -14,11 +14,10 @@ An algorithm implemented in JS that deallocates memory being used to store data 
 **Heap**
 - Everything else lives here
 - All objects plus strings and bigints will be here
-  - Unlike with most primitives, JS cannot determine the amount of memory needed purely off of the type during creation. A number is always 64 bit, an object is variable. The amount of memory is not known until the definition of the object is encountered during execution
+  - Unlike with most primitives, JS cannot determine the amount of memory needed during creation for objects, strings, bigints. A number is always 64 bit, an object is variable. The amount of memory is not known until the definition of the object is encountered during execution
 - Memory is allocated as values are created during execution
 - Since references are on the stack, and objects on the heap, objects won't be GCed until all of their references in the program are gone
-  - Unlike the stack, memory is not deallocated when variables go out of scope
-  - This is why we can do things like closure, or access an object out of scope, or call a function / method out of scope through their references
+  - Scope has nothing to do with GC, its about whether or not things are still refernced through the rest of the program
 
 ```javascript
 function test() {
@@ -36,7 +35,8 @@ outOfScope === outOfScope1; // true
 outOfScope = 1; // Now we only have one reference left
 outOfScope1 = 0; // That was the last one, the function that was being reference will now be garbage collected
 
-// Meanwhile, that 5 was unallocated from the stack as soon as the function finished executing
-// Even if we returned it, the VALUE would be returned, not a reference. 
+// Meanwhile, that 5 was de-allocated from the stack as soon as the function finished executing
+// Even if we returned it, the VALUE would be returned, not a reference.
+//  HOWEVER if we closed over x, the closure object would store a reference to the variable on the heap, and x would only be deallocated after it is no longer     referenced
 // Since that specific 5 in memory is going to be gone after the exeuction no matter what, the memory can be given back
 ```
