@@ -1,5 +1,5 @@
 ## Garbage Collection ##
-An algorithm implemented in JS that unallocates memory being used to store data in the heap
+An algorithm implemented in JS that deallocates memory being used to store data in the heap
 - JS handles memory allocation and garbage collection behind the scenes
 
 ### Stack vs heap ###
