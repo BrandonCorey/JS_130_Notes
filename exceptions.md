@@ -10,6 +10,7 @@ Errors messages that are thrown when JavaScript cannot recover from an error
 - Most we've seen so far are raised internally (i.e ReferenceError, SyntaxError, TypeError);
 - They can also be defined manually
 - All exceptions are objects, either the `Error` object or instances of the `Error` object (like the ones mentioned above)
+  - All `Error` objects have `message` and `name` properties that can be accessed
 
 ```javascript
 fuction div(first, second) {
