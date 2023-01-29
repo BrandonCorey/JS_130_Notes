@@ -95,9 +95,10 @@ for (sec = 1; sec <= 10; sec++) {
 - Here, instead of the `setTimeout` callback closing over `sec`, it closes over `delay` in the definition of the IIFE
 - In reality, a new `sec` is **not** declared on each iteration, as incrementing would be impossible, but JS does magic behind the scenes so that closure treats it like a new counter is created for the purpose of closure having access to these intermediate values
 
-### `setInterval` ###
+### `setInterval` and `clearInterval` ###
 Works similar to `setTimoeout`, but instead allows you to execute a callback at certain intervals instead of after a delay
 - Can use `clearInterval` to stop the `setIntervals` execution of the callback passed to it
+- `setInterval` returns an `intervalID` that can be used to cancel its execution using `clearInterval
 - `setIntveral` also bases its delays on milliseconds
 ```javascript
 const stayingAlive = () => {
@@ -109,4 +110,16 @@ stayingAlive();
 // stayin alive
 // stayin alive
 // ...
+```
+```javascript
+const stayingAlive = () => {
+  return setInterval(() => console.log('staying alive'), 1000);
+}
+
+let stayingAliveID = stayingAlive();
+
+const notAlive = (intervalID) => clearInterval(intervalID)
+notAlive(stayingAliveID);
+
+// Nothing is logged since we cancelled it
 ```
