@@ -6,6 +6,7 @@ An algorithm implemented in JS that deallocates memory being used to store data 
 **Stack**
 - Most primitives with fixed sizes (so not strings or bigints) are stored on the stack
 - References also live on the stack (NOT THE OBJECTS THEY REFERENCE HOWEVER)
+  - Since most primitives and references live on the stack, most variables themselves live on the stack
 - The stack does not participate in garbage collection
 - Because they have fixed sizes (things like `number`, `null`, `undefined`), JS can determine how much memeory to allocate at the start of the function/block during creation
 - When the block / function is done executing, the memory can be deallocated
