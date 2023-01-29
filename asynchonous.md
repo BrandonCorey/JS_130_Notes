@@ -88,11 +88,11 @@ This is more similar to what JS does behind the scenes what when using closure w
 const delayLog = () => {
   let sec;
 for (sec = 1; sec <= 10; sec++) {
-    ((delay) => (setTimeout(() => console.log(delay), delay * 1000)))(sec);
+    ((sec) => (setTimeout(() => console.log(sec), delay * 1000)))(sec);
   }
 }
 ```
-- Here, instead of the `setTimeout` callback closing over `sec`, it closes over `delay` in the definition of the IIFE
+- Here, instead of the `setTimeout` callback closing over the outer `sec`, it closes over `sec` parameter in the definition of the IIFE
 - In reality, a new `sec` is **not** declared on each iteration, as incrementing would be impossible, but JS does magic behind the scenes so that closure treats it like a new counter is created for the purpose of closure having access to these intermediate values
 
 ### `setInterval` and `clearInterval` ###
