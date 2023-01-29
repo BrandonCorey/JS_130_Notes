@@ -10,11 +10,11 @@ An algorithm implemented in JS that deallocates memory being used to store data 
 - The stack does not participate in garbage collection
 - Because they have fixed sizes (things like `number`, `null`, `undefined`), JS can determine how much memeory to allocate at the start of the function/block during creation
 - When the block / function is done executing, the memory can be deallocated
-  - This makes sense, primitives cannot be refernced when they are out of scope like objects can
 
 **Heap**
 - Everything else lives here
-- All objects plus strings and bigints will be here (these all have dynamic sizes and cannot be allocated ahead of time)
+- All objects plus strings and bigints will be here
+  - Unlike with most primitives, JS cannot determine the amount of memory needed purely off of the type during creation. A number is always 64 bit, an object is variable. The amount of memory is not known until the definition of the object is encountered during execution
 - Memory is allocated as values are created during execution
 - Since references are on the stack, and objects on the heap, objects won't be GCed until all of their references in the program are gone
   - Unlike the stack, memory is not deallocated when variables go out of scope
