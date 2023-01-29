@@ -1,5 +1,7 @@
 ## Asynchronous JS ##
 Code can be run asynchronously in JS. Meaning when the runtime encounters the code, it does not execute it fully until a later point (milliseconds, seconds, days, hours)
+
+### `setTimeout` ###
 - `setTimeout` is one of the easiest ways to run code asynchronously
 - Note that the invocation of `setTimeout` is not delayed, only the exeuction of the callback function passed to it
 
@@ -92,3 +94,19 @@ for (sec = 1; sec <= 10; sec++) {
 ```
 - Here, instead of the `setTimeout` callback closing over `sec`, it closes over `delay` in the definition of the IIFE
 - In reality, a new `sec` is **not** declared on each iteration, as incrementing would be impossible, but JS does magic behind the scenes so that closure treats it like a new counter is created for the purpose of closure having access to these intermediate values
+
+### `setInterval` ###
+Works similar to `setTimoeout`, but instead allows you to execute a callback at certain intervals instead of after a delay
+- Can use `clearInterval` to stop the `setIntervals` execution of the callback passed to it
+- `setIntveral` also bases its delays on milliseconds
+```javascript
+const stayingAlive = () => {
+  setInterval(() => console.log('staying alive'), 1000);
+}
+
+stayingAlive();
+// stayin alive
+// stayin alive
+// stayin alive
+// ...
+```
