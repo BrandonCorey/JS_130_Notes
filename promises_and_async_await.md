@@ -4,6 +4,7 @@ Promises give us a way to use asynchronous code in JS
 - Each promise takes a single argument, a callback that contains two (one optonal) arguments
   - The parameters for the callback are two more callbacks, a `resolve` callback, and a `reject` callback
   - These will be invoked conditionally based on how the promise settles
+- The **Fulfillment value** of a promise is the argument passed to either the `resolve` or `reject` callback, depnding on how the promise settles
 
 
 ### Promise vocab ###
@@ -13,7 +14,7 @@ Promises give us a way to use asynchronous code in JS
 - Rejected: A promise that has failed
 
 ### `Promise.prototype` methods ###
-- `then` - allows you to pass resolve and reject callbacks to a pending promise. Returns a new promise. Can be used to chian
+- `then` - allows you to pass resolve and reject callbacks to a pending promise. Returns a new promise. Can be used to chain
 - `catch`- allows you to supply a reject callback for multiple chained promises, instead of having to supply one to each individually
 - `finally` - allows you to supply a callback for after a promise has been settled. 
 
@@ -28,7 +29,11 @@ Promises give us a way to use asynchronous code in JS
 Allow us to write asynchronous functions easier, syntactic sugar to promise instance methods
 - Can put `asnyc` in front of any function declaration (or expression)
 - Can use `await` to wait on a promise to settle
-  - Settled promise returns argument to relevant function, either `resolve` or `reject`
+  - Settled promise returns the fulfillment value of the promise
+
+### Important Note ###
+- Remeber that `await` used with a promise will return a fulfillment value (argument to resolve/reject), whereas `then` returns a new promise
+- `async` and `await` are newer syntax, and are more popular then using `then` since it allows you to write synchronous looking code
 
 ```javascript
 // Create promise
