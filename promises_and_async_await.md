@@ -10,8 +10,11 @@ Promises give us a way to use asynchronous code in JS
 ### Promise vocab ###
 - Pending: A promise that has not been settled
 - Setted: A promise that has either resolved or rejected
-- Resolve: A promise that has successfully been completed
-- Rejected: A promise that has failed
+- Resolve: A promise that has returned the `resolve` callback
+- Rejected: A promise that has returned the `reject` callback
+- Fulfilled: A promise that has a fulfillment value
+- Fulfillment value: The value passed to the `resolve` or `reject` callback
+  - Note: Fulfilment is based on the fulfilment value, not whether or not the callback has been executed yet
 
 ### `Promise.prototype` methods ###
 - `then` - allows you to pass resolve and reject callbacks to a pending promise. Returns a new promise. Can be used to chain
@@ -34,6 +37,7 @@ Allow us to write asynchronous functions easier, syntactic sugar to promise inst
 ### Important Note ###
 - Remeber that `await` used with a promise will return a fulfillment value (argument to resolve/reject), whereas `then` returns a new promise
 - `async` and `await` are newer syntax, and are more popular then using `then` since it allows you to write synchronous looking code
+- `then` lets us immediately provide callbacks to do something with the fulfilment value, whereas `async` and `await` let us use it like a normal variable
 
 ```javascript
 // Create promise
