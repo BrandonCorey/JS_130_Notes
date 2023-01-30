@@ -1,3 +1,35 @@
+## Promises ##
+Promises give us a way to use asynchronous code in JS
+- Promises are are objects of the `Promise` constructor
+- Each promise takes a single argument, a callback that contains two (one optonal) arguments
+  - The parameters for the callback are two more callbacks, a `resolve` callback, and a `reject` callback
+  - These will be invoked conditionally based on how the promise settles
+
+
+### Promise vocab ###
+- Pending: A promise that has not been settled
+- Setted: A promise that has either resolved or rejected
+- Resolve: A promise that has successfully been completed
+- Rejected: A promise that has failed
+
+### `Promise.prototype` methods ###
+- `then` - allows you to pass resolve and reject callbacks to a pending promise. Returns a new promise. Can be used to chian
+- `catch`- allows you to supply a reject callback for multiple chained promises, instead of having to supply one to each individually
+- `finally` - allows you to supply a callback for after a promise has been settled. 
+
+
+### `Promise` methods 
+- `all` - Accepts an array of promises, and returns a single promise. Only resolves if all promises resolve. Returns an array of resolved values
+  - If a promise in the array argument rejects, returns rejected promise
+- `race` - Accepts an array of promises, returns a single promise. Returns first promise to settle, either resolve or fail
+- `allSettle`- Accepts an array of promises. Returns a promise that settles when all input promises settle
+
+## `async` and `await` ##
+Allow us to write asynchronous functions easier, syntactic sugar to promise instance methods
+- Can put `asnyc` in front of any function declaration (or expression)
+- Can use `await` to wait on a promise to settle
+  - Settled promise returns argument to relevant function, either `resolve` or `reject`
+
 ```javascript
 // Create promise
 
@@ -25,17 +57,17 @@ const printMessage = (message) => console.log(message);
 
 // With promise `then` syntax
 const sendWithPromiseMethods = (website) => {
-  createRequest(website).then(printMessage, printMessage)
+  createRequest(website).then(printMessage, printMessage) // Invokes asynchronous function, then invokes correct callback based on how promise settles
 }
 
 
 // With async and await
 
-const sendWithAsyncAwait = async (website) => {
+const sendWithAsyncAwait = async (website) => { // telling JS our function is asynchronous
   try {
-    const response = await createRequest(website); // response will save the argument passed to either 'resolve' or 'reject' based on the result of the request
-    printMessage(response); // In this case, response is 'Connection Successful', so we are printing that
-  } catch (error) {
+    const response = await createRequest(website); // We await createRequest to settle. If it resolves, it saves "Connection Successful!" to response. This is a STRING
+    printMessage(response);
+  } catch (error) { // Catch block will pass our reject agument to "error" so error in this case is "Can only make requests to google"
     printMessage(error);
   }
 }
