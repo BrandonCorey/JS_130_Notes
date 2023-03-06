@@ -20,11 +20,11 @@ Native support for modules offered by **Node**
 - Only works in Node, too slow for the browser (loads synchronously, not asynchronously)
 
 **Important variables**
-`module` - An object that represents the current module
-`exports`- Name(s) exported by module (same object is referenced by `module.exports`)
-`require` - function that loads module
-`__dirname` - absolute pathanme of the directory that contains the module
-`__filename` - absolute pathname of the file that contains the module
+- `module` - An object that represents the current module
+- `exports`- Name(s) exported by module (same object is referenced by `module.exports`)
+- `require` - function that loads module
+- `__dirname` - absolute pathanme of the directory that contains the module
+- `__filename` - absolute pathname of the file that contains the module
 
 ```javascript
 // File sum.js
